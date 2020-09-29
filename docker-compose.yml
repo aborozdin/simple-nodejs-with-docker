@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  nodeapp:
+    build: .
+    ports:
+      - 8080:8080
+      - 9229:9229
+    volumes:
+      - .:/node-app
+    command: ["node", "--inspect=0.0.0.0:9229", "app.js"]
