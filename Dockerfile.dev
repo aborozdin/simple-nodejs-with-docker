@@ -2,12 +2,14 @@ FROM node:14-alpine
 
 WORKDIR /node-app
 
+RUN npm install -g forever
+
 COPY package.json .
 RUN npm install
 RUN mv /node-app/node_modules /node_modules
 
 COPY . .
 
-CMD [ "node", "app.js" ]
+CMD [ "forever", "-w", "app.js" ]
 
 EXPOSE 8080

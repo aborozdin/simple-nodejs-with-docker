@@ -8,4 +8,4 @@ services:
       - 9229:9229
     volumes:
       - .:/node-app
-    command: ["node", "--inspect=0.0.0.0:9229", "app.js"]
+    command: node --inspect=0.0.0.0:9229 app.js

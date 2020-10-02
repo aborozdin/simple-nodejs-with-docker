@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  nodeapp:
+    build: 
+        context: .
+        dockerfile: Dockerfile.dev
+    ports:
+      - 8080:8080
+      - 9229:9229
+    volumes:
+      - .:/node-app
+    command: forever -w -c "node --inspect=0.0.0.0:9229" app.js
